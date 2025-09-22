@@ -1,0 +1,38 @@
+{
+  "name": "conference-waves",
+  "version": "1.0.0",
+  "description": "Landing page para Conferência Waves 2025",
+  "main": "src/App.js",
+  "type": "module",
+  "scripts": {
+    "dev": "live-server --port=3000 --open=/index.html --watch=src,assets,index.html",
+    "start": "live-server --port=3000 --open=/index.html",
+    "build": "npm run minify && npm run optimize",
+    "minify": "echo 'Minificação seria implementada aqui'",
+    "optimize": "echo 'Otimização seria implementada aqui'",
+    "lint": "echo 'ESLint seria executado aqui'",
+    "format": "echo 'Prettier seria executado aqui'",
+    "test": "echo 'Testes seriam executados aqui'",
+    "clean": "echo 'Sistema limpo e otimizado'"
+  },
+  "keywords": [
+    "conference",
+    "landing-page",
+    "javascript",
+    "css",
+    "html"
+  ],
+  "author": "Brandup Hub",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

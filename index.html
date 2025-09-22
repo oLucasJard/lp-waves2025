@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAVES 2K25 - Ondas do Mover do Espírito</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="shortcut icon" href="favicon.png">
+    
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/sections.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/placeholders.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Seção Principal (Header) -->
+    <header class="hero-section">
+        <div class="hero-background">
+            <img src="assets/images/hero-background.jpg" alt="Conferência Waves 2K25" class="hero-bg-image">
+            <div class="hero-overlay"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="container">
+                <!-- Logo da Conferência -->
+                <div class="logo-container">
+                    <h1 class="conference-logo">WAVES 2K25</h1>
+                </div>
+                
+                    <!-- Data -->
+                    <div class="event-info">
+                        <div class="event-date">
+                            <span class="date-text">24, 25 e 26 de Outubro de 2025</span>
+                        </div>
+                    </div>
+
+                <!-- Botão CTA -->
+                <div class="cta-container">
+                    <a href="https://inchur.ch/tTU5w" target="_blank" class="cta-button">
+                        <span class="cta-text">Inscreva-se Agora</span>
+                        <span class="cta-icon">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Indicador de Progresso do Scroll -->
+        <div class="scroll-progress">
+            <div class="progress-bar"></div>
+        </div>
+        
+        <!-- Indicador de Scroll -->
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+        
+        <!-- Ícones Flutuantes Temáticos -->
+        <div class="floating-icons">
+            <div class="floating-icon">🌊</div>
+            <div class="floating-icon">✨</div>
+            <div class="floating-icon">🌊</div>
+            <div class="floating-icon">🌟</div>
+            <div class="floating-icon">🌊</div>
+            <div class="floating-icon">💫</div>
+            <div class="floating-icon">🌊</div>
+            <div class="floating-icon">🎯</div>
+            <div class="floating-icon">🌊</div>
+            <div class="floating-icon">🚀</div>
+        </div>
+    </header>
+
+    <!-- Seção Vídeo Hero -->
+    <section id="video-hero" class="video-hero-section">
+        <div class="video-hero-container">
+            <video id="heroVideo" class="hero-video" autoplay loop playsinline>
+                <source src="VIDEO-HERO.MOV" type="video/mp4">
+                <source src="VIDEO-HERO.MOV" type="video/quicktime">
+                Seu navegador não suporta vídeos HTML5.
+            </video>
+            
+            <!-- Overlay com controles -->
+            <div class="video-hero-overlay">
+                <div class="video-hero-controls">
+                    <button id="playPauseBtn" class="control-btn play-pause-btn">
+                        <span class="play-icon">▶</span>
+                        <span class="pause-icon">⏸</span>
+                    </button>
+                    
+                    <button id="muteBtn" class="control-btn mute-btn">
+                        <span class="sound-icon">🔊</span>
+                        <span class="mute-icon">🔇</span>
+                    </button>
+                    
+                    <button id="fullscreenBtn" class="control-btn fullscreen-btn">
+                        <span class="fullscreen-icon">⛶</span>
+                        <span class="exit-fullscreen-icon">⛷</span>
+                    </button>
+                    
+                    <div class="volume-control">
+                        <input type="range" id="volumeSlider" class="volume-slider" min="0" max="100" value="50">
+                        <span class="volume-icon">🔊</span>
+                    </div>
+                </div>
+                
+                
+                <div class="video-progress-container">
+                    <div class="video-progress-bar">
+                        <div id="videoProgressFill" class="video-progress-fill"></div>
+                    </div>
+                    <div class="video-time-display">
+                        <span id="currentTime">0:00</span>
+                        <span class="time-separator">/</span>
+                        <span id="totalTime">0:00</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Efeitos visuais -->
+            <div class="video-hero-effects">
+                <div class="video-particle particle-1">✨</div>
+                <div class="video-particle particle-2">🌟</div>
+                <div class="video-particle particle-3">💫</div>
+                <div class="video-particle particle-4">⭐</div>
+                <div class="video-particle particle-5">🎆</div>
+                <div class="video-particle particle-6">🎇</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção Contador Regressivo -->
+    <section id="countdown" class="countdown-section">
+        <div class="container">
+            <div class="countdown-content">
+                <div class="countdown-header">
+                    <h2 class="countdown-title">Faltam apenas</h2>
+                </div>
+                
+                <div class="countdown-timer">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">000</div>
+                        <div class="countdown-label">Dias</div>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">00</div>
+                        <div class="countdown-label">Horas</div>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div class="countdown-label">Minutos</div>
+                    </div>
+                    <div class="countdown-separator">:</div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div class="countdown-label">Segundos</div>
+                    </div>
+                </div>
+                
+                <div class="countdown-cta">
+                    <a href="https://inchur.ch/tTU5w" target="_blank" class="countdown-button">
+                        <span>Garanta sua Vaga</span>
+                        <span class="button-icon">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Efeitos visuais do contador -->
+        <div class="countdown-effects">
+            <div class="countdown-particle"></div>
+            <div class="countdown-particle"></div>
+            <div class="countdown-particle"></div>
+            <div class="countdown-particle"></div>
+            <div class="countdown-particle"></div>
+        </div>
+        
+        <!-- Ícones Flutuantes -->
+        <div class="section-floating-icons">
+            <div class="section-icon">🌊</div>
+            <div class="section-icon">⏰</div>
+            <div class="section-icon">🌊</div>
+            <div class="section-icon">📅</div>
+        </div>
+    </section>
+
+    <!-- Seção Promocional Melhorada -->
+    <section id="promotional-video" class="promotional-video-section">
+        <div class="container">
+            <div class="promotional-content">
+                <div class="promotional-text">
+                    <h2 class="promotional-title">Prepare-se para uma experiência transformadora</h2>
+                    <p class="promotional-description">
+                        A Conferência Waves 2025 será um marco na sua vida espiritual. 
+                        Um momento onde o poder de Deus se manifestará de forma sobrenatural, 
+                        trazendo cura, libertação e renovação para todos os participantes.
+                    </p>
+                </div>
+                
+                <div class="promotional-features">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔥</div>
+                        <h3 class="feature-title">Ministrações Poderosas</h3>
+                        <p class="feature-description">Palavras que transformam vidas e despertam o poder de Deus</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3 class="feature-title">Momento de Avivamento</h3>
+                        <p class="feature-description">Um mover sobrenatural do Espírito Santo em sua vida</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌊</div>
+                        <h3 class="feature-title">Ondas de Transformação</h3>
+                        <p class="feature-description">Experiências que revolucionam sua jornada espiritual</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Seção Expectativas -->
+    <section id="expectations" class="expectations-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contador de Expectativa</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">Clique no botão e ajude a aumentar a expectativa para este momento especial!</p>
+            </div>
+
+            <div class="expectations-content">
+                <div class="expectations-counter">
+                    <div class="counter-display">
+                        <div class="counter-number" id="expectationsCount">0</div>
+                        <div class="counter-label">Pessoas com Expectativa</div>
+                        <div class="counter-subtitle">Juntos construindo algo especial</div>
+                    </div>
+                    
+                    <div class="expectations-button-container">
+                        <button class="expectations-button" id="expectationsBtn">
+                            <span class="button-text">Aumentar Expectativa</span>
+                            <span class="button-icon">⚡</span>
+                        </button>
+                        
+                        <!-- Sistema de Streak -->
+                        <div class="streak-card" id="streakDisplay">
+                            <div class="streak-header">
+                                <span class="streak-icon">🔥</span>
+                                <span class="streak-title">Streak Ativo</span>
+                            </div>
+                            <div class="streak-content">
+                                <div class="streak-number">
+                                    <span id="streakCount">0</span>
+                                    <span class="streak-label">cliques seguidos</span>
+                                </div>
+                                <div class="streak-timer-container">
+                                    <span class="timer-label">Tempo restante:</span>
+                                    <span class="streak-timer" id="streakTimer">0s</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Power-ups -->
+                        <div class="power-ups-container" id="powerUpsContainer">
+                            <div class="power-up" id="doubleClick" title="Clique duplo para 2x">
+                                <span class="power-up-icon">⚡</span>
+                                <span class="power-up-text">2x</span>
+                            </div>
+                            <div class="power-up" id="tripleClick" title="Clique triplo para 3x">
+                                <span class="power-up-icon">💥</span>
+                                <span class="power-up-text">3x</span>
+                            </div>
+                        </div>
+                        
+                        <div class="button-description">
+                            <p>Clique para adicionar sua expectativa ao contador!</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Sistema de Comentários -->
+                    <div class="comments-section" id="commentsSection">
+                        <h3 class="comments-title">Deixe sua expectativa:</h3>
+                        <div class="comment-input-container">
+                            <input type="text" id="commentInput" placeholder="Compartilhe sua expectativa para a conferência..." maxlength="100">
+                            <button class="comment-submit" id="commentSubmit">Enviar</button>
+                        </div>
+                        <div class="comments-display" id="commentsDisplay">
+                            <!-- Comentários aparecerão aqui -->
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="expectations-progress">
+                    <div class="progress-container">
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" id="progressFill"></div>
+                            <div class="progress-glow" id="progressGlow"></div>
+                        </div>
+                        <div class="progress-labels">
+                            <span class="progress-start">0</span>
+                            <span class="progress-target">1000</span>
+                        </div>
+                        <div class="progress-percentage">
+                            <span id="progressPercentage">0%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-milestones">
+                        <div class="milestone" data-target="100">
+                            <div class="milestone-icon">🎯</div>
+                            <div class="milestone-text">100 Expectativas</div>
+                            <div class="milestone-description">Primeira meta alcançada!</div>
+                        </div>
+                        <div class="milestone" data-target="500">
+                            <div class="milestone-icon">🔥</div>
+                            <div class="milestone-text">500 Expectativas</div>
+                            <div class="milestone-description">Meio caminho andado!</div>
+                        </div>
+                        <div class="milestone" data-target="1000">
+                            <div class="milestone-icon">🚀</div>
+                            <div class="milestone-text">1000 Expectativas</div>
+                            <div class="milestone-description">Meta final conquistada!</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="expectations-message" id="expectationsMessage">
+                    <div class="message-content">
+                        <div class="message-icon">💝</div>
+                        <div class="message-text">Sua expectativa foi registrada! Juntos estamos construindo algo especial.</div>
+                        <div class="message-subtitle">Continue clicando para aumentar ainda mais a expectativa!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Efeitos de fundo -->
+        <div class="expectations-effects">
+            <div class="floating-heart">💖</div>
+            <div class="floating-heart">💖</div>
+            <div class="floating-heart">💖</div>
+            <div class="floating-star">⭐</div>
+            <div class="floating-star">⭐</div>
+            <div class="floating-star">⭐</div>
+        </div>
+        
+        <!-- Ícones Flutuantes -->
+        <div class="section-floating-icons">
+            <div class="section-icon">🌊</div>
+            <div class="section-icon">🎊</div>
+            <div class="section-icon">🌊</div>
+            <div class="section-icon">🎈</div>
+        </div>
+    </section>
+
+
+    <!-- Seção Sobre a Conferência -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">O que é a Conferência Waves?</h2>
+                <div class="title-underline"></div>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="lead-text">
+                        A <strong>Conferência Waves</strong> - <em>Ondas do Mover do Espírito</em> é mais que um evento; é um convite para experimentar a <strong>manifestação palpável do poder de Deus</strong>.
+                    </p>
+                    
+                    <p>
+                        Baseada em <strong>Atos 4:31</strong>, a conferência tem como propósito despertar na nova geração o mesmo impacto que a <strong>Igreja primitiva</strong> viveu. O versículo descreve um momento de oração que resultou em um <strong>abalo físico e, principalmente, espiritual</strong>, enchendo os discípulos com o <strong>Espírito Santo</strong> e capacitando-os a pregar com <strong>ousadia</strong>.
+                    </p>
+                    
+                    <p>
+                        Esse tremor, esse abalo, é a <strong>"onda" de Deus</strong> que queremos ver em <strong>Paraíso do Tocantins</strong>. A conferência é sobre criar o ambiente para que o <strong>Espírito Santo</strong> se mova de maneira tão intensa que o lugar trema e <strong>vidas sejam transformadas</strong>. O nome <strong>Waves</strong> reflete o <strong>movimento contínuo e a força crescente do Espírito</strong>.
+                    </p>
+                    
+                    <p>
+                        A <strong>Palavra de Deus</strong> não é estática; ela se propaga como <strong>ondas de luz, som e poder</strong>. Quando a presença de Deus se manifesta, ela não atinge apenas um ponto, mas se espalha, impactando <strong>corações, famílias e comunidades</strong>. Nossa missão é ser o <strong>epicentro dessa onda de avivamento</strong>.
+                    </p>
+                    
+                    <p class="highlight-text">
+                        Em <strong>Outubro de 2025</strong>, a Conferência Waves será um tempo de <strong>adoração, ensino da Palavra e oração</strong>, onde buscaremos ser cheios do Espírito Santo para, assim como os apóstolos, viver e anunciar o Evangelho com <strong>ousadia e autoridade</strong>.
+                    </p>
+                    
+                    <blockquote class="verse-quote">
+                        <p>"Tendo eles orado, tremeu o lugar onde estavam reunidos; e todos foram cheios do Espírito Santo e anunciavam com ousadia a palavra de Deus."</p>
+                        <cite>Atos 4:31</cite>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Imagens Melhorada -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Galeria da Conferência</h2>
+                <div class="title-underline"></div>
+                <p class="section-description">
+                    Momentos especiais que marcaram nossa jornada espiritual
+                </p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item main-item">
+                    <div class="image-container">
+                        <img src="WAVES25.jpg" alt="Logo Waves 25 - Design Estilizado" class="gallery-image">
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="image-container">
+                        <img src="SAVETHEDATE FEED.jpg" alt="Save the Date - Conferência Waves 2025" class="gallery-image">
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="image-container">
+                        <img src="assets/images/conference-poster.jpg" alt="Poster da Conferência Waves" class="gallery-image">
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="image-container">
+                        <img src="CHAMADA WAVES AZUL TELÃO.jpg" alt="Chamada Waves Azul Telão" class="gallery-image">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="gallery-cta">
+                <p class="cta-text">
+                    Faça parte desta experiência única e seja transformado pelo poder de Deus
+                </p>
+                <a href="https://inchur.ch/tTU5w" target="_blank" class="gallery-button">
+                    <span class="button-text">Inscreva-se Agora</span>
+                    <span class="button-icon">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Seção Localização -->
+    <section id="location" class="location-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Localização</h2>
+                <div class="title-underline"></div>
+                <p class="section-description">
+                    Venha nos encontrar na Igreja de Cristo - MANT Paraíso
+                </p>
+            </div>
+            
+            <div class="location-content">
+                <div class="location-info">
+                    <div class="location-details">
+                        <h3 class="location-title">Igreja de Cristo - MANT Paraíso</h3>
+                        <div class="address-info">
+                            <div class="address-item">
+                                <span class="address-icon">📍</span>
+                                <div class="address-text">
+                                    <strong>Endereço:</strong><br>
+                                    Rua L10, N 269, St. Interlagos<br>
+                                    Paraíso do Tocantins - TO
+                                </div>
+                            </div>
+                            
+                            <div class="address-item">
+                                <span class="address-icon">🕒</span>
+                                <div class="address-text">
+                                    <strong>Horário da Conferência:</strong><br>
+                                    24, 25 e 26 de Outubro de 2025<br>
+                                    A partir das 19h00
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="location-cta">
+                            <a href="https://maps.app.goo.gl/2khTgYrgKMDP9MRc6" target="_blank" class="location-button">
+                                <span class="button-text">Ver no Google Maps</span>
+                                <span class="button-icon">🗺️</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção FAQ -->
+    <section id="faq" class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Dúvidas Frequentes</h2>
+                <div class="title-underline"></div>
+            </div>
+            
+            <div class="faq-content">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>📍 Onde será a conferência?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="answer-card">
+                            <div class="answer-icon">📍</div>
+                            <div class="answer-content">
+                                <h4>Localização</h4>
+                                <p>Na sede da <strong>Igreja de Cristo - MANT Paraíso</strong>, localizada na <strong>Rua L10, N 269, St. Interlagos</strong>, em <strong>Paraíso do Tocantins</strong>.</p>
+                                <div class="answer-details">
+                                    <span class="detail-item">🏢 Igreja de Cristo - MANT Paraíso</span>
+                                    <span class="detail-item">📍 Rua L10, N 269, St. Interlagos</span>
+                                    <span class="detail-item">🏙️ Paraíso do Tocantins</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>💰 Qual o valor da inscrição?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="answer-card">
+                            <div class="answer-icon">💰</div>
+                            <div class="answer-content">
+                                <h4>Valores da Inscrição</h4>
+                                <p>Oferecemos <strong>duas opções de investimento</strong> para participar da Conferência Waves:</p>
+                                <div class="answer-details">
+                                    <span class="detail-item">🎯 <strong>Inscrição Completa: R$ 60,00</strong></span>
+                                    <span class="detail-item">✅ Acesso aos 3 dias completos da conferência</span>
+                                    <span class="detail-item">📅 Todas as ministrações e atividades</span>
+                                    <span class="detail-item">🎪 <strong>Inscrição por Sessão: R$ 40,00</strong></span>
+                                    <span class="detail-item">📆 Acesso a apenas 1 sessão (dia específico)</span>
+                                    <span class="detail-item">💳 Formas de pagamento disponíveis</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>🍽️ Terá alimentação no local?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="answer-card">
+                            <div class="answer-icon">🍽️</div>
+                            <div class="answer-content">
+                                <h4>Alimentação</h4>
+                                <p>Sim, teremos <strong>lanchonete e área de alimentação</strong> no local com opções de comidas e bebidas para compra.</p>
+                                <div class="answer-details">
+                                    <span class="detail-item">🍔 Lanchonete no local</span>
+                                    <span class="detail-item">🥤 Bebidas disponíveis</span>
+                                    <span class="detail-item">🍕 Variedade de opções</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>👶 Posso levar crianças?</h3>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="answer-card">
+                            <div class="answer-icon">👶</div>
+                            <div class="answer-content">
+                                <h4>Crianças na Conferência</h4>
+                                <p>Sim, você <strong>pode levar crianças</strong> para a Conferência Waves! Porém, <strong>não teremos um espaço reservado</strong> ou ministério infantil específico.</p>
+                                <div class="answer-details">
+                                    <span class="detail-item">👶 Crianças são bem-vindas</span>
+                                    <span class="detail-item">⚠️ <strong>Atenção:</strong> Não há espaço reservado</span>
+                                    <span class="detail-item">👨‍👩‍👧‍👦 Responsabilidade total do responsável</span>
+                                    <span class="detail-item">📋 Cuidado e supervisão necessários</span>
+                                    <span class="detail-item">🙏 Toda família é bem-vinda</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <script type="module" src="src/App.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
