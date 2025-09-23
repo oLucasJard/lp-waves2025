@@ -2,6 +2,68 @@
    SEÇÕES PRINCIPAIS - CONFERÊNCIA WAVES
    ======================================== */
 
+/* Fallback para vídeo */
+.video-fallback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.fallback-content {
+    text-align: center;
+    color: white;
+    padding: 2rem;
+}
+
+.fallback-content h2 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.fallback-content p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.fallback-animation {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.wave-animation {
+    font-size: 2rem;
+    animation: waveFloat 2s ease-in-out infinite;
+}
+
+.wave-animation:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.wave-animation:nth-child(3) {
+    animation-delay: 1s;
+}
+
+@keyframes waveFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
 /* HERO SECTION */
 .hero-section {
     min-height: 100vh;

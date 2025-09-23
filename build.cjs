@@ -39,6 +39,15 @@ const filesToCopy = [
 const jpgFiles = fs.readdirSync('.').filter(file => file.endsWith('.jpg'));
 filesToCopy.push(...jpgFiles);
 
+// Copiar arquivos de vídeo
+const videoFiles = fs.readdirSync('.').filter(file => 
+  file.endsWith('.mp4') || 
+  file.endsWith('.mov') || 
+  file.endsWith('.avi') || 
+  file.endsWith('.webm')
+);
+filesToCopy.push(...videoFiles);
+
 // Copiar arquivos
 filesToCopy.forEach(file => {
   if (fs.existsSync(file)) {

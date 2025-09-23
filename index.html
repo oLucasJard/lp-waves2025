@@ -78,11 +78,26 @@
     <!-- Seção Vídeo Hero -->
     <section id="video-hero" class="video-hero-section">
         <div class="video-hero-container">
-            <video id="heroVideo" class="hero-video" autoplay loop playsinline>
+            <video id="heroVideo" class="hero-video" autoplay loop playsinline muted>
                 <source src="VIDEO-HERO.MOV" type="video/mp4">
                 <source src="VIDEO-HERO.MOV" type="video/quicktime">
+                <source src="VIDEO-HERO.mp4" type="video/mp4">
+                <source src="VIDEO-HERO.webm" type="video/webm">
                 Seu navegador não suporta vídeos HTML5.
             </video>
+            
+            <!-- Fallback para quando o vídeo não carregar -->
+            <div id="videoFallback" class="video-fallback" style="display: none;">
+                <div class="fallback-content">
+                    <h2>Conferência Waves 2025</h2>
+                    <p>Ondas do Mover do Espírito</p>
+                    <div class="fallback-animation">
+                        <div class="wave-animation">🌊</div>
+                        <div class="wave-animation">🌊</div>
+                        <div class="wave-animation">🌊</div>
+                    </div>
+                </div>
+            </div>
             
             <!-- Overlay com controles -->
             <div class="video-hero-overlay">

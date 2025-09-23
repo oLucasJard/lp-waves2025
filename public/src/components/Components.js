@@ -8,6 +8,56 @@ class VideoHero {
         this.volumeSlider = document.getElementById('volumeSlider');
         this.progressFill = document.getElementById('videoProgressFill');
         this.currentTimeEl = document.getElementById('currentTime');
+        this.videoFallback = document.getElementById('videoFallback');
+        
+        this.init();
+    }
+    
+    init() {
+        if (this.video) {
+            this.setupVideoEvents();
+            this.setupControls();
+        }
+    }
+    
+    setupVideoEvents() {
+        // Verificar se o vídeo carrega
+        this.video.addEventListener('error', () => {
+            console.log('Vídeo não pôde ser carregado, exibindo fallback');
+            this.showFallback();
+        });
+        
+        this.video.addEventListener('loadeddata', () => {
+            console.log('Vídeo carregado com sucesso');
+            this.hideFallback();
+        });
+        
+        // Timeout para verificar se o vídeo carrega em 5 segundos
+        setTimeout(() => {
+            if (this.video.readyState === 0) {
+                console.log('Vídeo não carregou em 5 segundos, exibindo fallback');
+                this.showFallback();
+            }
+        }, 5000);
+    }
+    
+    showFallback() {
+        if (this.video) {
+            this.video.style.display = 'none';
+        }
+        if (this.videoFallback) {
+            this.videoFallback.style.display = 'flex';
+        }
+    }
+    
+    hideFallback() {
+        if (this.video) {
+            this.video.style.display = 'block';
+        }
+        if (this.videoFallback) {
+            this.videoFallback.style.display = 'none';
+        }
+    }
         this.totalTimeEl = document.getElementById('totalTime');
         this.progressBar = document.querySelector('.video-progress-bar');
         
