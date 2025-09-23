@@ -30,24 +30,35 @@ class VideoHero {
     }
     
     setupYouTubeEvents() {
-        // Para YouTube, verificar se o iframe carrega
-        this.video.addEventListener('load', () => {
-            console.log('Vídeo YouTube carregado com sucesso');
-            this.hideFallback();
-        });
+        // Carregar YouTube sob demanda
+        this.loadYouTubeVideo();
         
-        this.video.addEventListener('error', () => {
-            console.log('Vídeo YouTube não pôde ser carregado, exibindo fallback');
-            this.showFallback();
-        });
-        
-        // Timeout para verificar se o YouTube carrega em 8 segundos
+        // Timeout mais rápido para fallback
         setTimeout(() => {
-            if (!this.video.contentDocument) {
-                console.log('YouTube não carregou em 8 segundos, exibindo fallback');
+            if (!this.video.src) {
+                console.log('YouTube não carregou em 3 segundos, exibindo fallback');
                 this.showFallback();
             }
-        }, 8000);
+        }, 3000);
+    }
+    
+    loadYouTubeVideo() {
+        // Carregar YouTube apenas quando necessário
+        const dataSrc = this.video.getAttribute('data-src');
+        if (dataSrc) {
+            this.video.src = dataSrc;
+            this.video.removeAttribute('data-src');
+            
+            this.video.addEventListener('load', () => {
+                console.log('Vídeo YouTube carregado com sucesso');
+                this.hideFallback();
+            });
+            
+            this.video.addEventListener('error', () => {
+                console.log('Vídeo YouTube não pôde ser carregado, exibindo fallback');
+                this.showFallback();
+            });
+        }
     }
     
     setupHTML5VideoEvents() {
@@ -568,7 +579,21 @@ class ExpectationsCounter {
     }
 
     init() {
-        if (!this.elements.counter) return;
+        console.log('ExpectationsCounter: Inicializando...');
+        console.log('ExpectationsCounter: Elements found:', this.elements);
+        
+        // Aguardar DOM estar pronto
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => this.init());
+            return;
+        }
+        
+        if (!this.elements.counter) {
+            console.error('ExpectationsCounter: Elemento counter não encontrado!');
+            // Tentar novamente em 100ms
+            setTimeout(() => this.init(), 100);
+            return;
+        }
         
         this.updateDisplay();
         this.updateProgress();
@@ -576,9 +601,15 @@ class ExpectationsCounter {
         this.setupEventListeners();
         this.loadComments();
         this.updateStreakDisplay();
+        console.log('ExpectationsCounter: Inicializado com sucesso!');
     }
 
     setupEventListeners() {
+        if (!this.elements.button) {
+            console.error('ExpectationsCounter: Botão não encontrado!');
+            return;
+        }
+        
         this.elements.button.addEventListener('click', () => {
             this.handleClick();
         });
@@ -860,8 +891,16 @@ class CountdownTimer {
         console.log('CountdownTimer: Target date:', new Date(this.targetDate));
         console.log('CountdownTimer: Elements found:', this.elements);
         
+        // Aguardar DOM estar pronto
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => this.init());
+            return;
+        }
+        
         if (!this.elements.days) {
             console.error('CountdownTimer: Elemento days não encontrado!');
+            // Tentar novamente em 100ms
+            setTimeout(() => this.init(), 100);
             return;
         }
         
