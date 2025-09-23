@@ -21,7 +21,37 @@ class VideoHero {
     }
     
     setupVideoEvents() {
-        // Verificar se o vídeo carrega
+        // Verificar se é um iframe do YouTube
+        if (this.video.tagName === 'IFRAME') {
+            this.setupYouTubeEvents();
+        } else {
+            this.setupHTML5VideoEvents();
+        }
+    }
+    
+    setupYouTubeEvents() {
+        // Para YouTube, verificar se o iframe carrega
+        this.video.addEventListener('load', () => {
+            console.log('Vídeo YouTube carregado com sucesso');
+            this.hideFallback();
+        });
+        
+        this.video.addEventListener('error', () => {
+            console.log('Vídeo YouTube não pôde ser carregado, exibindo fallback');
+            this.showFallback();
+        });
+        
+        // Timeout para verificar se o YouTube carrega em 8 segundos
+        setTimeout(() => {
+            if (!this.video.contentDocument) {
+                console.log('YouTube não carregou em 8 segundos, exibindo fallback');
+                this.showFallback();
+            }
+        }, 8000);
+    }
+    
+    setupHTML5VideoEvents() {
+        // Verificar se o vídeo HTML5 carrega
         this.video.addEventListener('error', () => {
             console.log('Vídeo não pôde ser carregado, exibindo fallback');
             this.showFallback();

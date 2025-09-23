@@ -64,6 +64,15 @@
     }
 }
 
+/* YouTube Video Styles */
+.youtube-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+    outline: none;
+}
+
 /* HERO SECTION */
 .hero-section {
     min-height: 100vh;

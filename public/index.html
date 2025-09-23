@@ -78,13 +78,14 @@
     <!-- Seção Vídeo Hero -->
     <section id="video-hero" class="video-hero-section">
         <div class="video-hero-container">
-            <video id="heroVideo" class="hero-video" autoplay loop playsinline muted>
-                <source src="VIDEO-HERO.MOV" type="video/mp4">
-                <source src="VIDEO-HERO.MOV" type="video/quicktime">
-                <source src="VIDEO-HERO.mp4" type="video/mp4">
-                <source src="VIDEO-HERO.webm" type="video/webm">
-                Seu navegador não suporta vídeos HTML5.
-            </video>
+            <iframe 
+                id="heroVideo" 
+                class="hero-video youtube-video"
+                src="https://www.youtube.com/embed/WYplFAGBPlc?autoplay=1&loop=1&playlist=WYplFAGBPlc&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&fs=0"
+                frameborder="0" 
+                allow="autoplay; encrypted-media; fullscreen" 
+                allowfullscreen>
+            </iframe>
             
             <!-- Fallback para quando o vídeo não carregar -->
             <div id="videoFallback" class="video-fallback" style="display: none;">
