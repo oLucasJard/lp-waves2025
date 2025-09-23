@@ -856,9 +856,18 @@ class CountdownTimer {
     }
 
     init() {
-        if (!this.elements.days) return;
+        console.log('CountdownTimer: Inicializando...');
+        console.log('CountdownTimer: Target date:', new Date(this.targetDate));
+        console.log('CountdownTimer: Elements found:', this.elements);
+        
+        if (!this.elements.days) {
+            console.error('CountdownTimer: Elemento days não encontrado!');
+            return;
+        }
+        
         this.update();
         this.interval = setInterval(() => this.update(), 1000);
+        console.log('CountdownTimer: Inicializado com sucesso!');
     }
 
     update() {

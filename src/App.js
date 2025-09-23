@@ -67,6 +67,7 @@ class ConferenceApp {
         this.components.videoHero = new VideoHero();
 
         // Inicializar contador regressivo
+        console.log('App: Inicializando CountdownTimer com data:', this.config.CONFERENCE.DATE);
         this.components.countdown = new CountdownTimer('countdown', this.config.CONFERENCE.DATE);
 
         // Inicializar contador de expectativas
