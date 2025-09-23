@@ -9,12 +9,5 @@ yarn-debug.log*
 yarn-error.log*
 .DS_Store
 *.log
-build.cjs
-src
-assets
-*.jpg
-*.png
-index.html
-favicon.png
 README.md
 DEPLOY.md
