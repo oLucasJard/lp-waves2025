@@ -4,22 +4,29 @@
 
 ✅ **Erro "No Output Directory named 'public' found"**
 - Criado diretório `public` com todos os arquivos estáticos
-- Configurado `vercel.json` para usar `public` como diretório de saída
+- Configurado `vercel.json` simplificado para usar `public` como diretório de saída
+- Adicionado `public/vercel.json` para deployment estático
 - Atualizado `package.json` com configurações do Vercel
+- Configurado `.vercelignore` para excluir arquivos fonte
 
 ## Arquivos Criados/Modificados
 
-### 1. `vercel.json`
+### 1. `vercel.json` (raiz)
+```json
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "public"
+}
+```
+
+### 2. `public/vercel.json`
 ```json
 {
   "version": 2,
   "builds": [
     {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "public"
-      }
+      "src": "index.html",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -27,24 +34,21 @@
       "src": "/(.*)",
       "dest": "/$1"
     }
-  ],
-  "outputDirectory": "public",
-  "installCommand": "npm install",
-  "buildCommand": "npm run build"
+  ]
 }
 ```
 
-### 2. `package.json` - Atualizações
+### 3. `package.json` - Atualizações
 - Adicionado script `copy-assets` que executa `build.cjs`
 - Adicionada configuração `vercel.outputDirectory: "public"`
 - Script de build agora copia todos os arquivos para `public`
 
-### 3. `build.cjs`
+### 4. `build.cjs`
 - Script Node.js que copia todos os arquivos necessários para `public`
 - Compatível com Windows e Linux
 - Remove e recria o diretório `public` a cada build
 
-### 4. `.vercelignore`
+### 5. `.vercelignore`
 - Ignora arquivos desnecessários no deploy
 - Inclui `node_modules`, logs, arquivos de ambiente, etc.
 
