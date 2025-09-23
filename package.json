@@ -37,6 +37,7 @@
     "node": ">=14.0.0"
   },
   "vercel": {
-    "outputDirectory": "public"
+    "outputDirectory": "public",
+    "buildCommand": "npm run build"
   }
 }
