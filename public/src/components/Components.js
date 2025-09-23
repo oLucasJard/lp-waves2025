@@ -754,12 +754,12 @@ class ExpectationsCounter {
     }
 
     loadCount() {
-        const saved = localStorage.getItem('expectationsCount');
+        const saved = localStorage.getItem('waves_expectationsCount');
         return saved ? parseInt(saved) : 0;
     }
 
     saveCount() {
-        localStorage.setItem('expectationsCount', this.count.toString());
+        localStorage.setItem('waves_expectationsCount', this.count.toString());
     }
 
     createEmojiExplosion() {
@@ -845,7 +845,7 @@ class CountdownTimer {
         const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        this.updateElement('days', days.toString());
+        this.updateElement('days', days.toString().padStart(3, '0'));
         this.updateElement('hours', hours.toString().padStart(2, '0'));
         this.updateElement('minutes', minutes.toString().padStart(2, '0'));
         this.updateElement('seconds', seconds.toString().padStart(2, '0'));
