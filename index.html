@@ -81,11 +81,10 @@
             <iframe 
                 id="heroVideo" 
                 class="hero-video youtube-video"
-                data-src="https://www.youtube.com/embed/WYplFAGBPlc?autoplay=1&loop=1&playlist=WYplFAGBPlc&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&fs=0"
+                src="https://www.youtube.com/embed/WYplFAGBPlc?autoplay=1&loop=1&playlist=WYplFAGBPlc&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&fs=0"
                 frameborder="0" 
                 allow="autoplay; encrypted-media; fullscreen" 
-                allowfullscreen
-                loading="lazy">
+                allowfullscreen>
             </iframe>
             
             <!-- Fallback para quando o vídeo não carregar -->
@@ -584,6 +583,84 @@
     </section>
 
     <script type="module" src="src/App.js"></script>
+    
+    <!-- Script simples para contadores -->
+    <script>
+        // Contagem Regressiva Simples
+        function initCountdown() {
+            const targetDate = new Date('2025-10-24T19:00:00').getTime();
+            
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+                
+                if (distance < 0) {
+                    document.getElementById('days').textContent = '000';
+                    document.getElementById('hours').textContent = '00';
+                    document.getElementById('minutes').textContent = '00';
+                    document.getElementById('seconds').textContent = '00';
+                    return;
+                }
+                
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').textContent = days.toString().padStart(3, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            }
+            
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        }
+        
+        // Contador de Expectativas Simples
+        function initExpectations() {
+            let count = parseInt(localStorage.getItem('waves_expectationsCount')) || 0;
+            const button = document.getElementById('expectationsBtn');
+            const counter = document.getElementById('expectationsCount');
+            const progressFill = document.getElementById('progressFill');
+            
+            function updateDisplay() {
+                if (counter) counter.textContent = count;
+                if (progressFill) {
+                    const percentage = Math.min((count / 1000) * 100, 100);
+                    progressFill.style.width = percentage + '%';
+                }
+            }
+            
+            function handleClick() {
+                count++;
+                localStorage.setItem('waves_expectationsCount', count.toString());
+                updateDisplay();
+                
+                // Efeito visual
+                if (counter) {
+                    counter.style.transform = 'scale(1.2)';
+                    setTimeout(() => {
+                        counter.style.transform = 'scale(1)';
+                    }, 200);
+                }
+            }
+            
+            if (button) {
+                button.addEventListener('click', handleClick);
+            }
+            
+            updateDisplay();
+        }
+        
+        // Inicializar quando o DOM estiver pronto
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Inicializando contadores simples...');
+            initCountdown();
+            initExpectations();
+            console.log('Contadores inicializados!');
+        });
+    </script>
 </body>
 </html>
 
