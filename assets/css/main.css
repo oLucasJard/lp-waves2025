@@ -175,28 +175,6 @@ body::before {
     .nav-link {
         font-size: 0.9rem;
     }
-    
-    .speakers-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .speaker-card {
-        padding: 1.5rem;
-    }
-    
-    .modal-content {
-        padding: 2rem;
-        margin: 1rem;
-    }
-    
-    .modal-title {
-        font-size: 1.5rem;
-    }
-    
-    .modal-text {
-        font-size: 1rem;
-    }
 }
 
 @media (max-width: 480px) {
@@ -211,21 +189,8 @@ body::before {
     .section-header {
         margin-bottom: 3rem;
     }
-    
-    .speaker-image {
-        width: 100px;
-        height: 100px;
-        font-size: 2.5rem;
-    }
-    
-    .speaker-name {
-        font-size: 1.3rem;
-    }
-    
-    .modal-content {
-        padding: 1.5rem;
-    }
 }
+
 
 /* ACCESSIBILITY */
 @media (prefers-reduced-motion: reduce) {
@@ -247,7 +212,6 @@ body::before {
     .floating-icons,
     .section-floating-icons,
     .video-effects,
-    .testimonials-effects,
     .expectations-effects {
         display: none;
     }

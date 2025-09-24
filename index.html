@@ -2,8 +2,17 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
     <title>WAVES 2K25 - Ondas do Mover do Espírito</title>
+    
+    <!-- Mobile-specific meta tags -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Waves 2025">
+    <meta name="theme-color" content="#2c5aa0">
+    <meta name="msapplication-navbutton-color" content="#2c5aa0">
+    <meta name="msapplication-TileColor" content="#2c5aa0">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
@@ -81,10 +90,9 @@
             <iframe 
                 id="heroVideo" 
                 class="hero-video youtube-video"
-                src="https://www.youtube.com/embed/WYplFAGBPlc?autoplay=1&loop=1&playlist=WYplFAGBPlc&mute=1&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&fs=0"
+                src="https://www.youtube.com/embed/WYplFAGBPlc?autoplay=1&loop=1&playlist=WYplFAGBPlc&mute=0&controls=1&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&fs=0"
                 frameborder="0" 
-                allow="autoplay; encrypted-media; fullscreen" 
-                allowfullscreen>
+                allow="autoplay; encrypted-media; fullscreen; picture-in-picture">
             </iframe>
             
             <!-- Fallback para quando o vídeo não carregar -->
@@ -123,7 +131,7 @@
                 
                 <div class="countdown-timer">
                     <div class="countdown-item">
-                        <div class="countdown-number" id="days">000</div>
+                        <div class="countdown-number" id="days">0</div>
                         <div class="countdown-label">Dias</div>
                     </div>
                     <div class="countdown-separator">:</div>
@@ -595,7 +603,7 @@
                 const distance = targetDate - now;
                 
                 if (distance < 0) {
-                    document.getElementById('days').textContent = '000';
+                    document.getElementById('days').textContent = '0';
                     document.getElementById('hours').textContent = '00';
                     document.getElementById('minutes').textContent = '00';
                     document.getElementById('seconds').textContent = '00';
@@ -607,13 +615,22 @@
                 const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((distance % (1000 * 60)) / 1000);
                 
-                document.getElementById('days').textContent = days.toString().padStart(3, '0');
+                document.getElementById('days').textContent = days.toString();
                 document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
                 document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
                 document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+                
+                // Debug: verificar se está funcionando
+                console.log(`Countdown: ${days} dias, ${hours} horas, ${minutes} minutos, ${seconds} segundos`);
             }
             
+            // Atualizar imediatamente
             updateCountdown();
+            
+            // Forçar atualização após 100ms para garantir que funcione
+            setTimeout(updateCountdown, 100);
+            
+            // Atualizar a cada segundo
             setInterval(updateCountdown, 1000);
         }
         
@@ -660,7 +677,35 @@
             initExpectations();
             console.log('Contadores inicializados!');
         });
+        
+        // FAQ Toggle Functionality
+        function initFAQ() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqItem = this.parentElement;
+                    const isActive = faqItem.classList.contains('active');
+                    
+                    // Fechar todos os outros FAQ items
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    
+                    // Toggle do item clicado
+                    if (!isActive) {
+                        faqItem.classList.add('active');
+                    }
+                });
+            });
+        }
+        
+        // Inicializar FAQ quando DOM estiver pronto
+        document.addEventListener('DOMContentLoaded', function() {
+            initFAQ();
+        });
     </script>
+    <script src="assets/js/mobile-touch.js"></script>
 </body>
 </html>
 

@@ -99,6 +99,9 @@ class VideoHero {
             this.videoFallback.style.display = 'none';
         }
     }
+    
+    // Inicializar elementos do progresso do vídeo
+    initVideoProgress() {
         this.totalTimeEl = document.getElementById('totalTime');
         this.progressBar = document.querySelector('.video-progress-bar');
         
@@ -767,12 +770,22 @@ class ExpectationsCounter {
     }
 
     loadComments() {
-        const comments = this.loadComments();
-        if (this.elements.commentsDisplay) {
+        const comments = this.getCommentsFromStorage();
+        if (this.elements.commentsDisplay && comments) {
             this.elements.commentsDisplay.innerHTML = '';
             comments.forEach(comment => {
                 this.displayComment(comment);
             });
+        }
+    }
+    
+    getCommentsFromStorage() {
+        try {
+            const comments = localStorage.getItem('waves_comments');
+            return comments ? JSON.parse(comments) : [];
+        } catch (error) {
+            console.error('Erro ao carregar comentários:', error);
+            return [];
         }
     }
 
@@ -1024,92 +1037,9 @@ class FormValidator {
     }
 }
 
-// Componente Parallax Controller
-class ParallaxController {
-    constructor() {
-        this.layers = document.querySelectorAll('.parallax-layer-1, .parallax-layer-2');
-        this.init();
-    }
-
-    init() {
-        if (this.layers.length === 0) return;
-        window.addEventListener('scroll', () => this.update());
-    }
-
-    update() {
-        const scrolled = window.pageYOffset;
-        this.layers.forEach((layer, index) => {
-            const speed = (index + 1) * 0.5;
-            const yPos = -(scrolled * speed);
-            layer.style.transform = `translateY(${yPos}px)`;
-        });
-    }
-}
-
-// Componente Modal Manager
-class ModalManager {
-    constructor(modalId) {
-        this.modal = document.getElementById(modalId);
-        this.init();
-    }
-
-    init() {
-        if (!this.modal) return;
-        this.bindEvents();
-    }
-
-    bindEvents() {
-        // Fechar ao clicar fora
-        this.modal.addEventListener('click', (e) => {
-            if (e.target === this.modal) {
-                this.close();
-            }
-        });
-
-        // Fechar com ESC
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                this.close();
-            }
-        });
-    }
-
-    open(data) {
-        if (!this.modal) return;
-        this.updateContent(data);
-        this.modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
-
-    close() {
-        if (!this.modal) return;
-        this.modal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    }
-
-    updateContent(data) {
-        const elements = {
-            emoji: document.getElementById('modalEmoji'),
-            name: document.getElementById('modalName'),
-            title: document.getElementById('modalTitle'),
-            church: document.getElementById('modalChurch'),
-            bio: document.getElementById('modalBio')
-        };
-
-        Object.keys(elements).forEach(key => {
-            if (elements[key] && data[key]) {
-                elements[key].textContent = data[key];
-            }
-        });
-    }
-}
-
 // Exportar componentes para uso global
 window.VideoHero = VideoHero;
 window.CountdownTimer = CountdownTimer;
 window.ExpectationsCounter = ExpectationsCounter;
-
 window.VideoPlaceholder = VideoPlaceholder;
 window.FormValidator = FormValidator;
-window.ParallaxController = ParallaxController;
-window.ModalManager = ModalManager;

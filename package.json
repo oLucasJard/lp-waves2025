@@ -7,13 +7,7 @@
   "scripts": {
     "dev": "live-server --port=3000 --open=/index.html --watch=src,assets,index.html",
     "start": "live-server --port=3000 --open=/index.html",
-    "build": "npm run minify && npm run optimize && npm run copy-assets",
-    "minify": "echo 'Minificação seria implementada aqui'",
-    "optimize": "echo 'Otimização seria implementada aqui'",
-    "copy-assets": "node build.cjs",
-    "lint": "echo 'ESLint seria executado aqui'",
-    "format": "echo 'Prettier seria executado aqui'",
-    "test": "echo 'Testes seriam executados aqui'",
+    "build": "node build.cjs",
     "clean": "echo 'Sistema limpo e otimizado'"
   },
   "keywords": [

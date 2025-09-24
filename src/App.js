@@ -81,12 +81,6 @@ class ConferenceApp {
         });
 
 
-        // Inicializar controlador de parallax
-        this.components.parallax = new ParallaxController();
-
-        // Inicializar gerenciador de modal
-        // this.components.modal = new ModalManager('speakerModal'); // Removido - seção de palestrantes removida
-
         // Inicializar observador de scroll para animações
         this.components.scrollObserver = createScrollObserver((element) => {
             this.animateElement(element);
@@ -200,11 +194,6 @@ class ConferenceApp {
     handleScroll() {
         // Atualizar progresso do scroll
         this.updateScrollProgress();
-
-        // Atualizar parallax
-        if (this.components.parallax) {
-            this.components.parallax.update();
-        }
     }
 
     updateScrollProgress() {
@@ -221,11 +210,6 @@ class ConferenceApp {
     handleResize() {
         // Recalcular layouts responsivos
         this.updateResponsiveLayouts();
-
-        // Recalcular parallax
-        if (this.components.parallax) {
-            this.components.parallax.update();
-        }
     }
 
     updateResponsiveLayouts() {
